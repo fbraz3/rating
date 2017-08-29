@@ -13,9 +13,9 @@ class FilmesDAO
      */
     private $db;
 
-    public function __construct($db)
+    public function __construct(PDO $db)
     {
-        $this->db = $this->setDb($db);
+        $this->setDb($db);
     }
 
     public function buscaFilmes(){
@@ -72,9 +72,7 @@ class FilmesDAO
         throw new Exception('Erro ao buscar média atualizada');
     }
 
-    private function setDb($db){
-        if ($db instanceof PDO) return $db;
-        throw new Exception('Favor configurar a conexão com o banco');
+    private function setDb(PDO $db){
+        $this->db = $db;
     }
-
 }

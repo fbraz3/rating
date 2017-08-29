@@ -5,12 +5,12 @@
  * Date: 25/08/2017
  * Time: 23:48
  */
-require_once ('config.php');
-require_once ('header.php');
+
 require_once ('autoloader.php');
+require_once ('header.php');
 
 try{
-
+    $db = Database::getPDO();
     $filmesDAO = new FilmesDAO($db);
     $filmes = $filmesDAO->buscaFilmes();
 

@@ -13,9 +13,9 @@ class VotoDAO
      */
     private $db;
 
-    public function __construct($db)
+    public function __construct(PDO $db)
     {
-        $this->db = $db;
+        $this->setDb($db);
     }
 
     public function registra(Voto $voto){
@@ -30,4 +30,7 @@ class VotoDAO
         throw new UserException('Erro ao registrar a nota, favor entrar em contato com o suporte.');
     }
 
+    private function setDb(PDO $db){
+        $this->db = $db;
+    }
 }
